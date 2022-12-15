@@ -1,0 +1,56 @@
+﻿@model BlogMvc.Models.Blog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h1>@Model.Baslik</h1>
+<hr />
+<p>
+    <span class="glyphicon glyphicon-time "></span>
+    @Model.EklenmeTarihi
+</p>
+<hr />
+<img class="img-responsive" src="https://place-hold.it/900x300" alt="">
+<hr />
+<blockquote>
+    <p>@Model.Aciklama</p>
+</blockquote>
+<p>
+    @Model.Icerik
+</p>
+<div class="comment">
+    <div class="well">
+        <h4>Yorum Yap:</h4>
+        <form role="form">
+            <div class="form-group">
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+
+        </form>
+    </div>
+    <hr />
+    <div class="media"> <div class="media-left"> <a href="#"> <img alt="64x64" class="media" /> </a></div></div>
+
+</div>
+
+
+@section SagKolon
+    {
+    <div class="well">
+        <h4>Blog Search</h4>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="input-group-btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+        <!-- /.input-group -->
+    </div>
+    @{ Html.RenderAction("KategoriListesi", "Category");};
+
+}
